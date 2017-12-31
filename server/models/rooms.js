@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
 //new schema
-var Room = mongoose.model('Room', {
+var RoomSchema = mongoose.Schema({
     room_number: Number,
     type: {
               type: String,
-              enum: ["Standard", "Double"]
+              enum: ["Standard", "Double", "Suite"]
     },
     beds: Number,
     max_occupancy: Number,
@@ -19,6 +19,6 @@ var Room = mongoose.model('Room', {
 });
 
 //new model
-var Room = mongoose.model('rooms', MovieSchema);
+var Room = mongoose.model('rooms', RoomSchema);
 
 module.exports = Room;
