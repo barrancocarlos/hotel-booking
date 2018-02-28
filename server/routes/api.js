@@ -31,7 +31,7 @@ app.get('/api', function(req, res, next) {
 
 //post new Room
     app.post('/api', function(req, res, next) {
-        var Room = new Room({
+        var room = new Room({
            room_number: req.body.room_number,
            type: req.body.type,
            beds: req.body.beds,
@@ -39,7 +39,7 @@ app.get('/api', function(req, res, next) {
            cost_per_night: req.body.cost_per_night,
            reserved: req.body.reserved,
         });
-        Room.save(function(err, data) {
+        room.save(function(err, data) {
             if(err) {
                 return next(err);
             }
@@ -103,6 +103,8 @@ app.get('/api', function(req, res, next) {
         });
 
     });
+
+// book available room
 
     app.post('/api/reserve', function(req, res) {
 
